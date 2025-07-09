@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro-Innovarq - Diseñamos, construimos y ejecutamos con pasión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/proinnovarq.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #1b3453;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1b3453 0%, #2a4a6b 100%);
+            color: #ffffff;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(199, 182, 154, 0.1);
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo img{
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #c7b69a;
+        }
+        
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-slogan {
+            font-size: 1.8rem;
+            color: #c7b69a;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #c7b69a, #d4c5a8);
+            color: #1b3453;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(199, 182, 154, 0.3);
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-icon {
+            font-size: 12rem;
+            color: rgba(199, 182, 154, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-alt {
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1b3453;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #c7b69a, #1b3453);
+            border-radius: 2px;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(27, 52, 83, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(199, 182, 154, 0.2);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(27, 52, 83, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #c7b69a;
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1b3453;
+        }
+        
+        /* Software Section */
+        .software-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .software-tag {
+            background: linear-gradient(45deg, #1b3453, #2a4a6b);
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .software-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Entities Section */
+        .entities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .entity-card {
+            background: linear-gradient(135deg, #1b3453, #2a4a6b);
+            color: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .entity-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .entity-icon {
+            font-size: 2.5rem;
+            color: #c7b69a;
+            margin-bottom: 1rem;
+        }
+        
+        /* More About Us Section */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(199, 182, 154, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #c7b69a;
+        }
+        
+        .service-item i {
+            color: #1b3453;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Form */
+        .form-container {
+            background: linear-gradient(135deg, #1b3453, #2a4a6b);
+            color: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #c7b69a;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1b3453;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input {
+            margin-right: 0.5rem;
+            width: auto;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #c7b69a, #d4c5a8);
+            color: #1b3453;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Payment Methods */
+        .payment-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(199, 182, 154, 0.1);
+        }
+        
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .payment-icon {
+            font-size: 3rem;
+            color: #1b3453;
+            transition: transform 0.3s ease;
+        }
+        
+        .payment-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1b3453;
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: #c7b69a;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item i {
+            margin-right: 0.5rem;
+            color: #c7b69a;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-icon {
+                font-size: 8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <img src="./assets/proinnovarq.svg" alt="Pro-Innovarq - Diseñamos, construimos y ejecutamos con pasión">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#software">Software</a></li>
+                    <li><a href="#entidades">Entidades</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-slogan">Diseñamos, construimos y ejecutamos con pasión</div>
+                    <p class="hero-description">
+                        Somos una empresa con más de 6 años de experiencia en el sector inmobiliario y constructivo, 
+                        enfocada en trámites ante entidades públicas y privadas, brindando soluciones integrales de arquitectura y construcción.
+                    </p>
+                    <a href="#contacto" class="cta-button">Solicitar Cotización</a>
+                </div>
+                <div class="hero-visual">
+                    <i class="fas fa-building hero-icon"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios de Obra Civil</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-hard-hat service-icon"></i>
+                    <h3 class="service-title">Construcción de Obras Civiles</h3>
+                    <p>Construcción integral de proyectos civiles con los más altos estándares de calidad y seguridad.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-contract service-icon"></i>
+                    <h3 class="service-title">Licencias de Construcción</h3>
+                    <p>Gestión completa de licencias y permisos de construcción ante las entidades competentes.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home service-icon"></i>
+                    <h3 class="service-title">Mantenimiento de Cubiertas</h3>
+                    <p>Mantenimiento preventivo y correctivo de cubiertas para prolongar su vida útil.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools service-icon"></i>
+                    <h3 class="service-title">Remodelaciones</h3>
+                    <p>Remodelación integral de espacios residenciales y comerciales con diseño innovador.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tint service-icon"></i>
+                    <h3 class="service-title">Impermeabilización</h3>
+                    <p>Sistemas de impermeabilización para proteger sus estructuras de la humedad.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wrench service-icon"></i>
+                    <h3 class="service-title">Arreglos Locativos</h3>
+                    <p>Arreglos eléctricos e hidrosanitarios para mantener sus instalaciones en óptimas condiciones.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-eye service-icon"></i>
+                    <h3 class="service-title">Supervisión de Obra</h3>
+                    <p>Supervisión técnica especializada para garantizar la calidad en cada etapa del proyecto.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-clipboard-list service-icon"></i>
+                    <h3 class="service-title">Trámites ante Curaduría, Planeación e IDPC</h3>
+                    <p>Gestión de trámites y documentación ante curadurías y entidades de planeación y patrimonio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Section -->
+    <section id="software" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Software de Diseño que Utilizamos</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+                Trabajamos con las herramientas más avanzadas del mercado para garantizar precisión y calidad en nuestros proyectos.
+            </p>
+            <div class="software-list">
+                <div class="software-tag">ARCHICAD</div>
+                <div class="software-tag">AUTOCAD</div>
+                <div class="software-tag">REVIT</div>
+                <div class="software-tag">SKETCHUP</div>
+                <div class="software-tag">TWINMOTION</div>
+                <div class="software-tag">V-RAY</div>
+                <div class="software-tag">ETABS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entities Section -->
+    <section id="entidades" class="section">
+        <div class="container">
+            <h2 class="section-title">Entidades con las que Trabajamos</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+                Trabajamos a nivel nacional con diferentes entidades públicas y privadas.
+            </p>
+            <div class="entities-grid">
+                <div class="entity-card">
+                    <i class="fas fa-university entity-icon"></i>
+                    <h3>Curadurías Urbanas en Bogotá</h3>
+                </div>
+                <div class="entity-card">
+                    <i class="fas fa-city entity-icon"></i>
+                    <h3>Planeación Distrital</h3>
+                </div>
+                <div class="entity-card">
+                    <i class="fas fa-landmark entity-icon"></i>
+                    <h3>Alcaldías</h3>
+                </div>
+                <div class="entity-card">
+                    <i class="fas fa-monument entity-icon"></i>
+                    <h3>IDPC</h3>
+                </div>
+                <div class="entity-card">
+                    <i class="fas fa-map entity-icon"></i>
+                    <h3>Catastro</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More About Us Section -->
+    <section id="nosotros" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Más de Nosotros</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span>Levantamiento arquitectónico</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-drafting-compass"></i>
+                    <span>Diseño arquitectónico 2D y 3D</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-image"></i>
+                    <span>Render</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-cube"></i>
+                    <span>Metodología BIM</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Diseño eléctrico, CCTV e hidráulico</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-building"></i>
+                    <span>Diseño estructural, pórticos y metálico</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-calculator"></i>
+                    <span>Presupuestos de obras, APU's</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Estudio de suelos</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-mountain"></i>
+                    <span>Topografía</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>Avalúos</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-search"></i>
+                    <span>Peritaje, inmobiliario y estructural</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Minutas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="form-container">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #c7b69a;">Solicita tu Cotización</h3>
+                <form class="contact-form">
+                    <div class="form-grid">
+                        <div>
+                            <div class="form-group">
+                                <label for="nombre">Nombre Completo *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" id="empresa" name="empresa">
+                            </div>
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad *</label>
+                                <input type="text" id="ciudad" name="ciudad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="servicios">Servicios de Interés *</label>
+                                <select id="servicios" name="servicios" required>
+                                    <option value="">Seleccionar servicio ▼</option>
+                                    <option value="construccion">Construcción de Obras Civiles</option>
+                                    <option value="licencias">Licencias de Construcción</option>
+                                    <option value="cubiertas">Mantenimiento de Cubiertas</option>
+                                    <option value="remodelaciones">Remodelaciones</option>
+                                    <option value="impermeabilizacion">Impermeabilización</option>
+                                    <option value="arreglos">Arreglos Locativos, Eléctricos e Hidrosanitarios</option>
+                                    <option value="supervision">Supervisión de Obra</option>
+                                    <option value="tramites">Trámites ante Planeación y IDPC</option>
+                                    <option value="multiple">Múltiples servicios</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje Adicional</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos más detalles sobre tu proyecto..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-section">
+        <div class="container">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1b3453;">Aceptamos Todos los Medios de Pago</h3>
+            <p style="color: #1b3453; margin-bottom: 2rem;">Facilitamos tus transacciones con múltiples opciones de pago</p>
+            <div class="payment-icons">
+                <i class="fas fa-university payment-icon" title="PSE"></i>
+                <i class="fab fa-cc-mastercard payment-icon" title="Mastercard"></i>
+                <i class="fab fa-cc-visa payment-icon" title="Visa"></i>
+                <i class="fab fa-cc-amex payment-icon" title="American Express"></i>
+                <i class="fas fa-credit-card payment-icon" title="Tarjetas Débito y Crédito"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pro-Innovarq</h3>
+                    <p>Diseñamos, construimos y ejecutamos con pasión</p>
+                    <p>Más de 6 años de experiencia en el sector</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+57 3214279108</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>proinnovarqsas@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Cobertura Nacional</span>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(199, 182, 154, 0.3); padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 Pro-Innovarq. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Show success message
+            alert('¡Gracias por tu solicitud! Nos pondremos en contacto contigo muy pronto.');
+            
+            // Reset form
+            this.reset();
+        });
